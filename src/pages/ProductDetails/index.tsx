@@ -31,6 +31,9 @@ export default function ProductDetailsPage() {
           src={product.image}
           alt={product.name}
           className="product-details__image"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = '/images/fallback.jpg';
+          }}
         />
         <div className="product-details__info">
           <h2>{product.name}</h2>

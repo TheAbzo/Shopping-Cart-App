@@ -14,6 +14,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
           src={product.image}
           alt={product.name}
           className="product-card__image"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = '/images/fallback.jpg';
+          }}
         />
         <h3 className="product-card__name">{product.name}</h3>
         <p className="product-card__price">${product.price.toFixed(2)}</p>
