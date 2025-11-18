@@ -1,4 +1,3 @@
-
 .navbar {
   position: sticky;
   top: 0;
@@ -23,8 +22,7 @@
     list-style: none;
     display: flex;
     gap: 1.5rem;
-    margin-left: auto; 
-        margin-top: 16px;
+    margin-top: 16px;
 
     a, span.cart-link {
       color: $color-navbar-text;
@@ -44,8 +42,18 @@
 
     span.cart-link.disabled {
       cursor: not-allowed;
-      color: lighten($color-navbar-text, 40%);
     }
+  }
+
+  // Left links container - left align naturally
+  &__links--left {
+    margin-left: 20px; // or 0 to align flush left
+  }
+
+  // Right links container - push to right
+  &__links--right {
+    margin-left: auto;
+    margin-right: 20px; 
   }
 }
 

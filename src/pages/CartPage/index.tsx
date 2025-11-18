@@ -4,25 +4,34 @@ import { useNavigate } from 'react-router-dom';
 import './style.scss';
 import { useCartContext } from '../../context/useCartContext';
 import { Navbar } from '../../components/NavBar';
+import { useToast } from '../../context/ToastProvider/ToastProvider';
 
 export default function CartPage() {
   const { cart, removeFromCart, addToCart, clearCart } = useCartContext();
+  const { showToast } = useToast(); // get showToast from your context
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isPurchasing, setIsPurchasing] = useState(false);
   const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // If cart becomes empty, auto navigate to home
   useEffect(() => {
-    if (cart.length === 0) {
+    if (cart.length === 0 && !isPurchasing) {
       navigate('/');
     }
-  }, [cart, navigate]);
+  }, [cart, isPurchasing, navigate]);
 
   const handleConfirm = () => {
-    clearCart();
+    setIsPurchasing(true);
     setModalOpen(false);
-    navigate('/');  // navigate home after confirming purchase
+
+    showToast('Purchase successful! Redirecting to homepage...', 'success');
+
+    setTimeout(() => {
+      clearCart();
+      setIsPurchasing(false);
+      navigate('/');
+    }, 2000); 
   };
 
   return (
@@ -38,11 +47,10 @@ export default function CartPage() {
               {item.name} × {item.quantity}
             </div>
             <div className="cart-page__item-controls">
-             
               <span className="cart-page__price">${(item.price * item.quantity).toFixed(2)}</span>
               <div className="cart-page__buttons">
-                 <Button size="small" onClick={() => removeFromCart(item.id)}>-</Button>
-                 <Button size="small" onClick={() => addToCart(item)}>+</Button>
+                <Button size="small" onClick={() => removeFromCart(item.id)}>-</Button>
+                <Button size="small" onClick={() => addToCart(item)}>+</Button>
               </div>
             </div>
           </div>
