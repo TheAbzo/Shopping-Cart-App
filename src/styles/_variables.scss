@@ -1,0 +1,24 @@
+// Colors
+$color-primary: #1890ff;
+$color-primary-dark: #096dd9;
+$color-secondary: #52c41a;
+$color-navbar-bg: #001529;
+$color-navbar-text: #ffffff;
+$color-navbar-hover: $color-primary;
+$color-bg-info: #f5f7fa;  // very light gray background for info panel
+$color-text-info: #222222; // dark text for readability
+$color-shadow: rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Spacing (optional)
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+
+// Fonts
+$font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
