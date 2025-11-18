@@ -1,27 +1,31 @@
 .cart-page {
   max-width: 700px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  margin: $spacing-lg auto;
+  padding: 0 $spacing-md;
 
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-md;
+    color: $color-primary;
+    font-weight: $font-weight-bold;
   }
 
   &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-md;
+      color: $color-text-primary; 
   }
 
   &__price {
-    font-weight: 600;
-    color: #1890ff;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
   }
 
   &__total {
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-md;
+    color: $color-primary-dark;
   }
 }
