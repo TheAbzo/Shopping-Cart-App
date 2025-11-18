@@ -1,73 +1,112 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛒 Shopping Cart App
 
-Currently, two official plugins are available:
+A modern, lightweight e-commerce frontend built with React, Vite, TypeScript, and React Query.
+Supports infinite scrolling, cart management, toast notifications, and clean reusable components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+🎬 Video:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[18.11.2025 23_09.webm](https://github.com/user-attachments/assets/45e1502c-53db-4f4f-a2b4-ce1690e2442f)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Features
+- 🌀 **Infinite Scroll Product Listing**:
+    - Fetches products page-by-page using React Query infinite queries
+    - Smooth auto-loading when user reaches bottom
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 🧺 **Cart System (Add / Remove):**
+    - Add product to cart from listing or details page
+    -  Remove product directly from cart
+      
+- 📱 **Responsive UI**:
+    - Mobile-first design, works well on tablets and desktops.
+    - Modern UI with TailwindCSS styling.
+- 🔔**Toast Notifications**:
+    - Successful toast on successful purchase.
+    
+- 🧭 **Three Pages:**
+    - Products Page, infinite list of products
+    - Product Details Page, open product card to view more info
+    - Cart Page, view and modify cart items
+      
+- 💻 **Clean & Maintainable Code**:
+    - Modular components.
+    - TypeScript types for type safety.
+
+### Setup & Run
+
+1. Clone the repo
+
+```
+git clone https://github.com/TheAbzo/Shopping-Cart-App.git
+cd shopping-cart-app/
+```
+2. Install & Run
+```
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
+- Frontend: React 18, TypeScript, Vite
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure Overview
 ```
+.
+├── Shopping-cart-app
+└── public/
+    ├── images/
+    │   └── fallback.jpg
+    └── src/
+        ├── api/
+        │   └── fakeApi.ts
+        ├── components/
+        │   ├── NavBar/
+        │   │   ├── index.tsx
+        │   │   └── style.scss
+        │   ├── ProductCard/
+        │   │   ├── index.tsx
+        │   │   └── style.scss
+        │   └── ProductGrid/
+        │       ├── index.tsx
+        │       └── style.scss
+        ├── context/
+        │   ├── ToastProvider/
+        │   │   ├── ToastProvider.tsx
+        │   │   └── style.scss
+        │   ├── CartContext.ts
+        │   ├── CartContextProvider.tsx
+        │   └── useCartContext.tsx
+        ├── hooks/
+        │   └── useProducts.ts
+        ├── pages/
+        │   ├── CartPage/
+        │   │   ├── index.tsx
+        │   │   └── style.scss
+        │   ├── ProductDetails/
+        │   │   ├── index.tsx
+        │   │   └── style.scss
+        │   └── ProductList/
+        │       ├── index.tsx
+        │       └── style.scss
+        ├── styles/
+        │   ├── global.scss
+        │   └── _variables.scss
+        ├── types/
+        │   └── product.ts
+        ├── App.css
+        ├── App.tsx
+        ├── index.css
+        ├── main.tsx  
+        └── router.tsx
+
+```
+
+
+
+
+
