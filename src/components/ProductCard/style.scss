@@ -10,6 +10,20 @@
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
 
+   button {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: $color-primary !important;
+
+    &:focus,
+    &:active,
+    &:focus-visible {
+      outline: none !important;
+      box-shadow: none !important;
+      border-color: $color-primary !important;
+    }
+  }
+
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

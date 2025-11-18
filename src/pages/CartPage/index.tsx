@@ -1,18 +1,28 @@
 import { Button, Modal, Divider } from 'antd';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.scss';
 import { useCartContext } from '../../context/useCartContext';
 import { Navbar } from '../../components/NavBar';
 
 export default function CartPage() {
-  const { cart, removeFromCart, clearCart } = useCartContext();
+  const { cart, removeFromCart, addToCart, clearCart } = useCartContext();
   const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  // If cart becomes empty, auto navigate to home
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate('/');
+    }
+  }, [cart, navigate]);
 
   const handleConfirm = () => {
     clearCart();
     setModalOpen(false);
+    navigate('/');  // navigate home after confirming purchase
   };
 
   return (
@@ -24,14 +34,16 @@ export default function CartPage() {
 
         {cart.map((item) => (
           <div className="cart-page__item" key={item.id}>
-            <div>
+            <div className="cart-page__item-info">
               {item.name} × {item.quantity}
             </div>
-            <div>
+            <div className="cart-page__item-controls">
+             
               <span className="cart-page__price">${(item.price * item.quantity).toFixed(2)}</span>
-              <Button danger size="small" onClick={() => removeFromCart(item.id)} style={{ marginLeft: 8 }}>
-                Remove
-              </Button>
+              <div className="cart-page__buttons">
+                 <Button size="small" onClick={() => removeFromCart(item.id)}>-</Button>
+                 <Button size="small" onClick={() => addToCart(item)}>+</Button>
+              </div>
             </div>
           </div>
         ))}

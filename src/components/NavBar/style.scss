@@ -23,7 +23,7 @@
     list-style: none;
     display: flex;
     gap: 1.5rem;
-    margin-left: auto; // pushes links to right side
+    margin-left: auto; 
         margin-top: 16px;
 
     a, span.cart-link {
@@ -56,7 +56,7 @@
 
 .cart-icon {
   font-size: 24px;
-  color: inherit; // inherit from link or disabled color
+  color: inherit;
 }
 
 .cart-badge {
@@ -68,7 +68,7 @@
   font-size: 0.75rem;
   font-weight: $font-weight-bold;
   border-radius: 50%;
-  padding: 0 6px;
+  padding: 0 3px;
   min-width: 18px;
   height: 18px;
   display: flex;
