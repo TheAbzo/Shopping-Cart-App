@@ -1,0 +1,24 @@
+.product-list-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; 
+}
+
+
+.product-list {
+  flex-grow: 1;
+  padding-top: $spacing-lg; // or a fixed navbar offset if needed
+  background-color: #f0f2f5; // if you want this global, create $color-background
+
+  main {
+    padding: $spacing-md $spacing-lg;
+
+    h1 {
+      color: $color-primary;
+      font-weight: $font-weight-bold;
+      font-family: $font-family-base;
+    }
+  }
+}
