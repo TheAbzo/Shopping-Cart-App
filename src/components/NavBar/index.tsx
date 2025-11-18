@@ -10,52 +10,46 @@ export const Navbar = () => {
   const badgeText = totalItems > 9 ? '9+' : totalItems;
 
   return (
- <nav className="navbar">
-  <div className="navbar__logo">MyShop</div>
+    <nav className="navbar">
+      <div className="navbar__logo">MyShop</div>
 
-  <ul className="navbar__links navbar__links--left">
-    <li>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          isActive ? 'active-link' : undefined
-        }
-      >
-        Products
-      </NavLink>
-    </li>
-  </ul>
+      <ul className="navbar__links navbar__links--left">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'active-link' : undefined)}
+          >
+            Products
+          </NavLink>
+        </li>
+      </ul>
 
-  <ul className="navbar__links navbar__links--right">
-    <li>
-      {totalItems > 0 ? (
-        <NavLink
-          to="/cart"
-          className={({ isActive }) =>
-            isActive ? 'active-link cart-link' : 'cart-link'
-          }
-          title={`${totalItems} item${totalItems !== 1 ? 's' : ''} in cart`}
-        >
-          <div className="cart-icon-container">
-            <ShoppingCartOutlined className="cart-icon" />
-            <span className="cart-badge" key={badgeText}>
-              {badgeText}
+      <ul className="navbar__links navbar__links--right">
+        <li>
+          {totalItems > 0 ? (
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                isActive ? 'active-link cart-link' : 'cart-link'
+              }
+              title={`${totalItems} item${totalItems !== 1 ? 's' : ''} in cart`}
+            >
+              <div className="cart-icon-container">
+                <ShoppingCartOutlined className="cart-icon" />
+                <span className="cart-badge" key={badgeText}>
+                  {badgeText}
+                </span>
+              </div>
+            </NavLink>
+          ) : (
+            <span className="cart-link disabled" title="Your cart is empty">
+              <div className="cart-icon-container">
+                <ShoppingCartOutlined className="cart-icon" />
+              </div>
             </span>
-          </div>
-        </NavLink>
-      ) : (
-        <span
-          className="cart-link disabled"
-          title="Your cart is empty"
-        >
-          <div className="cart-icon-container">
-            <ShoppingCartOutlined className="cart-icon" />
-          </div>
-        </span>
-      )}
-    </li>
-  </ul>
-</nav>
-
+          )}
+        </li>
+      </ul>
+    </nav>
   );
 };

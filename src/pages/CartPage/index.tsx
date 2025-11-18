@@ -31,7 +31,7 @@ export default function CartPage() {
       clearCart();
       setIsPurchasing(false);
       navigate('/');
-    }, 2000); 
+    }, 2000);
   };
 
   return (
@@ -47,10 +47,16 @@ export default function CartPage() {
               {item.name} × {item.quantity}
             </div>
             <div className="cart-page__item-controls">
-              <span className="cart-page__price">${(item.price * item.quantity).toFixed(2)}</span>
+              <span className="cart-page__price">
+                ${(item.price * item.quantity).toFixed(2)}
+              </span>
               <div className="cart-page__buttons">
-                <Button size="small" onClick={() => removeFromCart(item.id)}>-</Button>
-                <Button size="small" onClick={() => addToCart(item)}>+</Button>
+                <Button size="small" onClick={() => removeFromCart(item.id)}>
+                  -
+                </Button>
+                <Button size="small" onClick={() => addToCart(item)}>
+                  +
+                </Button>
               </div>
             </div>
           </div>

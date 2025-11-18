@@ -11,15 +11,14 @@ import { ToastProvider } from './context/ToastProvider/ToastProvider.tsx';
 
 const queryClient = new QueryClient();
 
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <ToastProvider>
-     <QueryClientProvider client={queryClient}>
-      <CartContextProvider>
-        <App />
-      </CartContextProvider>
-    </QueryClientProvider>
+    <ToastProvider>
+      <QueryClientProvider client={queryClient}>
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
+      </QueryClientProvider>
     </ToastProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);

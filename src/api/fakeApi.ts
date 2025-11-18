@@ -11,13 +11,15 @@ export type Product = {
 const TOTAL_PRODUCTS = 10000;
 
 // Generate fake products once on module load
-const products: Product[] = Array.from({ length: TOTAL_PRODUCTS }).map((_, i) => ({
-  id: i + 1,
-  name: faker.commerce.productName(),
-  description: faker.commerce.productDescription(),
-  price: parseFloat(faker.commerce.price()),
-  image: `https://picsum.photos/seed/${i + 1}/200/200`,
-}));
+const products: Product[] = Array.from({ length: TOTAL_PRODUCTS }).map(
+  (_, i) => ({
+    id: i + 1,
+    name: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    price: parseFloat(faker.commerce.price()),
+    image: `https://picsum.photos/seed/${i + 1}/200/200`,
+  })
+);
 
 type FetchProductsResult = {
   data: Product[];
@@ -26,7 +28,10 @@ type FetchProductsResult = {
   limit: number;
 };
 
-export function fetchProducts({ page = 1, limit = 50 }): Promise<FetchProductsResult> {
+export function fetchProducts({
+  page = 1,
+  limit = 50,
+}): Promise<FetchProductsResult> {
   return new Promise((resolve) => {
     const start = (page - 1) * limit;
     const end = start + limit;

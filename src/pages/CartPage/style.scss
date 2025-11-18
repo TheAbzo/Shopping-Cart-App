@@ -14,36 +14,36 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: $spacing-md;
-      color: $color-text-primary; 
-       &-info {
-    /* Left side: product name and quantity */
-    font-weight: $font-weight-medium;
-  }
+    color: $color-text-primary;
+    &-info {
+      /* Left side: product name and quantity */
+      font-weight: $font-weight-medium;
+    }
 
-  &-controls {
-    /* Right side: buttons and price */
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 0.5rem;
+    &-controls {
+      /* Right side: buttons and price */
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
 
-    button {
-      min-width: 30px;
-      padding: 0 6px;
-      line-height: 1;
-      margin-right: 8px;
-      span{
-            margin-bottom: 3px;
+      button {
+        min-width: 30px;
+        padding: 0 6px;
+        line-height: 1;
+        margin-right: 8px;
+        span {
+          margin-bottom: 3px;
+        }
+      }
+
+      .cart-page__price {
+        margin-left: 12px;
+        font-weight: $font-weight-bold;
+        color: $color-primary;
+        white-space: nowrap;
       }
     }
-
-    .cart-page__price {
-      margin-left: 12px;
-      font-weight: $font-weight-bold;
-      color: $color-primary;
-      white-space: nowrap;
-    }
-  }
   }
 
   &__price {

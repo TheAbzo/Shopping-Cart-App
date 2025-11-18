@@ -5,7 +5,8 @@ import { useProducts } from '../../hooks/useProducts';
 import { ProductCard } from '../ProductCard';
 
 export const ProductGrid = () => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useProducts();
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useProducts();
 
   const gridRef = useRef<HTMLDivElement>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
@@ -20,7 +21,7 @@ export const ProductGrid = () => {
         }
       },
       {
-        root: gridRef.current,    
+        root: gridRef.current,
         rootMargin: '200px',
         threshold: 0.1,
       }
@@ -33,7 +34,9 @@ export const ProductGrid = () => {
   return (
     <div className="product-grid" ref={gridRef}>
       {data?.pages.map((page) =>
-        page.data.map((product) => <ProductCard key={product.id} product={product} />)
+        page.data.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))
       )}
       <div ref={loadMoreRef} className="load-more">
         {isFetchingNextPage && <Spin size="large" />}

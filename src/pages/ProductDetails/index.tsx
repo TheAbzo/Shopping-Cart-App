@@ -16,19 +16,31 @@ export default function ProductDetailsPage() {
     enabled: !!id,
   });
 
-  if (isLoading) return <Spin style={{ display: 'block', margin: '2rem auto' }} size="large" />;
-  if (!product) return <div style={{ padding: '2rem' }}>Product not found.</div>;
+  if (isLoading)
+    return (
+      <Spin style={{ display: 'block', margin: '2rem auto' }} size="large" />
+    );
+  if (!product)
+    return <div style={{ padding: '2rem' }}>Product not found.</div>;
 
   return (
     <>
       <Navbar />
       <div className="product-details">
-        <img src={product.image} alt={product.name} className="product-details__image" />
+        <img
+          src={product.image}
+          alt={product.name}
+          className="product-details__image"
+        />
         <div className="product-details__info">
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <p className="product-details__price">${product.price.toFixed(2)}</p>
-          <Button type="primary" size="large" onClick={() => addToCart(product)}>
+          <Button
+            type="primary"
+            size="large"
+            onClick={() => addToCart(product)}
+          >
             Add to Cart
           </Button>
         </div>

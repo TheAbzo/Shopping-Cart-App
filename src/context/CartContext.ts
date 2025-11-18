@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import type { Product } from "../api/fakeApi";
+import { createContext } from 'react';
+import type { Product } from '../api/fakeApi';
 
 export type CartItem = Product & { quantity: number };
 

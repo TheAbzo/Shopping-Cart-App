@@ -5,7 +5,7 @@ import './style.scss';
 export const ProductListPage = () => {
   console.log('Rendering ProductListPage');
   return (
-    <div className='product-list-page-container'>
+    <div className="product-list-page-container">
       <Navbar />
       <div className="product-list">
         <main>
