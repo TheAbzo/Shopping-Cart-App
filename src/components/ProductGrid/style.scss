@@ -1,0 +1,28 @@
+.product-grid {
+ display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+    overflow-y: auto;
+  background-color: white;
+  height: 100vh;
+   scrollbar-width: none;         // Firefox
+  -ms-overflow-style: none;      // IE/Edge legacy
+ 
+  &::-webkit-scrollbar {         // Chrome, Edge, Safari
+    display: none;
+  }
+    }
+
+
+
+.load-more {
+  min-height: 60px;  // keep height consistent even when spinner hidden
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}

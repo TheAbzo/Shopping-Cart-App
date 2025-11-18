@@ -1,0 +1,35 @@
+
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  background-color: $color-navbar-bg;
+  color: $color-navbar-text;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  width: 100vw;
+
+  &__logo {
+    font-weight: $font-weight-bold;
+    font-size: 1.5rem;
+        height: 60px;
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: $color-navbar-text;
+      text-decoration: none;
+      font-weight: $font-weight-medium;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
